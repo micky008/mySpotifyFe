@@ -1,0 +1,8 @@
+<p-dropdown [options]="playlists" [(ngModel)]="playlist" optionLabel="name"></p-dropdown>
+<button pButton type="button" class="p-button-raised p-button-rounded" icon="pi pi-cog" (click)="display = true"></button>
+
+
+<p-sidebar [(visible)]="display" [position]="'top'">
+    <input #newPlayListInput type="text" pInputText /> <button pButton type="button" class="p-button-raised p-button-rounded" icon="pi pi-cog"></button>
+    <button pButton type="button" class="p-button-raised p-button-rounded" icon="pi pi-save" (click)="addPl(newPlayListInput.value)"></button>
+</p-sidebar>

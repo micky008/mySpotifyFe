@@ -1,0 +1,20 @@
+<span class="p-input-icon-right">
+    <i class="pi pi-search"></i>
+    <input type="text" pInputText placeholder="Search">
+</span>
+<p-scrollPanel [style]="{width: '100%', height: '100%'}">
+    <p-table [value]="folders">
+        <ng-template pTemplate="body" let-folder>
+            <tr>
+                <td [routerLink]="['/folder', folder.id]">{{folder.name}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <p-table [value]="musiques">
+        <ng-template pTemplate="body" let-zik>
+            <tr>
+                <td>{{zik.titre}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-scrollPanel>

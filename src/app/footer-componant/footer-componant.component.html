@@ -1,0 +1,6 @@
+<p-dropdown [options]="playlists" [(ngModel)]="playlist" optionLabel="name"></p-dropdown>
+<p-autoComplete [(ngModel)]="musique" [suggestions]="musiques" (completeMethod)="search($event)" [dropdown]="true"></p-autoComplete>
+<audio #audioCtl controls>
+    Your browser does not support the
+    <code>audio</code> element.
+</audio>
