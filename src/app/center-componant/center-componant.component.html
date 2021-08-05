@@ -12,7 +12,7 @@
     </p-table>
     <p-table [value]="musiques">
         <ng-template pTemplate="body" let-zik>
-            <tr>
+            <tr pDraggable="dd" (onDragStart)="dragStart($event,zik)">
                 <td>{{zik.titre}}</td>
             </tr>
         </ng-template>

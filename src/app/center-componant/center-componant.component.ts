@@ -5,6 +5,7 @@ import { FolderDAO } from '../dao/FolderDAO';
 import { MusiqueDAO } from '../dao/MusiqueDAO';
 import { Folder } from '../entity/Folder';
 import { Musique } from '../entity/Musique';
+import { DragDropService } from '../services/dragdrop.service';
 
 @Component({
   selector: 'app-center-componant',
@@ -16,9 +17,8 @@ export class CenterComponantComponent implements OnChanges, OnInit, OnDestroy {
   folders: Folder[];
   musiques: Musique[];
 
-  constructor(private route: ActivatedRoute, private folderDAO: FolderDAO, public musqiueDAO: MusiqueDAO) {
+  constructor(private route: ActivatedRoute, private folderDAO: FolderDAO, public musqiueDAO: MusiqueDAO, private ddService: DragDropService) {
     this.handlerRoute = this.route.paramMap.subscribe(map => {
-      console.log('here');
       let uuid: string = map.get('folderId');
       if (uuid == null) {
         return;
@@ -45,6 +45,10 @@ export class CenterComponantComponent implements OnChanges, OnInit, OnDestroy {
 
   ngOnInit(): void {
 
+  }
+
+  dragStart(event: any, musique: Musique) {
+    this.ddService.musique = musique;
   }
 
 }

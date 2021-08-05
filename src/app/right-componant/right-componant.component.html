@@ -1,5 +1,15 @@
-<p-dropdown [options]="playlists" [(ngModel)]="playlist" optionLabel="name"></p-dropdown>
-<button pButton type="button" class="p-button-raised p-button-rounded" icon="pi pi-cog" (click)="display = true"></button>
+<div pDroppable="dd" (onDrop)="drop($event)">
+    <p-dropdown [options]="playlists" [(ngModel)]="playlist" optionLabel="name"></p-dropdown>
+    <p-table [value]="playlist.musiques" [reorderableColumns]="true" (onRowReorder)="save()">
+        <ng-template pTemplate="body" let-musique let-index="rowIndex">
+            <tr [pReorderableRow]="index">
+                <td [pReorderableRowHandle]="index">{{musique.titre}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <button pButton type="button" class="p-button-raised p-button-rounded" icon="pi pi-cog" (click)="display = true"></button>
+
+</div>
 
 
 <p-sidebar [(visible)]="display" [position]="'top'">

@@ -22,6 +22,9 @@ import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
 import { MusiqueDAO } from './dao/MusiqueDAO';
 import { PlaylistDAO } from './dao/PlaylistDAO';
+import { DragDropModule } from 'primeng/dragdrop';
+import { DragDropService } from './services/dragdrop.service';
+
 
 
 
@@ -45,9 +48,10 @@ import { PlaylistDAO } from './dao/PlaylistDAO';
     InputTextModule,
     AutoCompleteModule,
     ButtonModule,
-    SidebarModule
+    SidebarModule,
+    DragDropModule
   ],
-  providers: [FolderDAO, MusiqueDAO, PlaylistDAO],
+  providers: [FolderDAO, MusiqueDAO, PlaylistDAO, DragDropService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FolderDAO } from './dao/FolderDAO';
+import { PlaylistDAO } from './dao/PlaylistDAO';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,10 @@ import { FolderDAO } from './dao/FolderDAO';
 export class AppComponent implements OnInit {
   title = 'MonTitre';
 
-
+  constructor(private pldao: PlaylistDAO) { }
 
   ngOnInit(): void {
-
+    this.pldao.init();
   }
 
 
